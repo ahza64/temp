@@ -10,18 +10,28 @@ class App extends Component {
     this.state = {
       deferredPrompt: { type: "nothing" }
     }
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      console.log("window listener triggered");
+      event.preventDefault();
+      console.log("event!!!", event);
+      this.state = {
+        deferredPrompt: event
+      };
+    });
   }
+
 
   componentDidMount() {
 
     console.log("component dddddid Mount window listener");
     window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
       console.log("window listener triggered");
+      event.preventDefault();
       console.log("event!!!", event);
       this.setState({
         deferredPrompt: event
-      })
+      });
     });
   }
 
