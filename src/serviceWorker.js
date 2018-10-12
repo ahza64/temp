@@ -61,7 +61,7 @@ function registerValidSW(swUrl, config) {
         const installingWorker = registration.installing;
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
-            if (!navigator.serviceWorker.controller) {
+            if (navigator.serviceWorker.controller) {
               // At this point, the old content will have been purged and
               // the fresh content will have been added to the cache.
               // It's the perfect time to display a "New content is
@@ -93,11 +93,9 @@ function registerValidSW(swUrl, config) {
 }
 
 function checkValidServiceWorker(swUrl, config) {
-  console.log("checkValidServiceWorker");
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
-      console.log("checkValidServiceWorker");
       // Ensure service worker exists, and that we really are getting a JS file.
       if (
         response.status === 404 ||
@@ -110,7 +108,6 @@ function checkValidServiceWorker(swUrl, config) {
           });
         });
       } else {
-        console.log("else registerValidSW()");
         // Service worker found. Proceed as normal.
         registerValidSW(swUrl, config);
       }
