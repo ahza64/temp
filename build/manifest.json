@@ -1,6 +1,6 @@
 {
-  "short_name": "WBG",
-  "name": "Wows Battle Guide",
+  "short_name": "WowsBG",
+  "name": "Install Wows Battle Guide",
   "icons": [
     {
       "src": "wowsIcon.jpg",
