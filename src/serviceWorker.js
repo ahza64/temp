@@ -8,6 +8,9 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+// @TODO (no bugs in production) serviceWroker is stopping app updates. "Bypass for network" will yield you the updated package, and sw seems to store the updated package
+// I need serviceWorker to update app when network files change (only does it in development)
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
